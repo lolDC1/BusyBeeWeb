@@ -1,0 +1,191 @@
+header {
+  height: 411px;
+  width: 1228px;
+  margin: 0 auto 40px;
+  background: url("src/assets/img/banners-021.png") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 7px;
+}
+header h1, p
+{
+  color: #050038;
+  margin-bottom: 16px;
+}
+header h1
+{
+  font-size: 3em
+}
+header p {
+  font-size: 32px;
+}
+.user-head {
+  display: flex;
+  align-items: flex-start;
+}
+
+.user-photo {
+  margin-right: 20px;
+}
+
+.user-details {
+  flex-grow: 1;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-number {
+  font-size: 14px;
+  color: gray;
+}
+
+.user-description {
+  margin-top: 10px;
+}
+
+.user-connect {
+  display: flex;
+  align-items: flex-end;
+}
+
+.bt_create_order {
+  background-color: #FE6575;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 60px;
+  border: 1px solid #FE6575;
+}
+.bt_create_order a {
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+}
+.bt_create_order:hover {
+  border: 1px solid #FE6575;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.alike-cat-bt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 10px 24px;
+  gap: 24px;
+
+  width: 239px;
+  height: 45px;
+  left: 1061px;
+  top: 1267px;
+
+  border: none;
+  background-color: transparent;
+  color: #333;
+
+}
+.alike-cat-bt:hover{
+  background: #050038;
+  color: white;
+}
+
+.popular-category {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.workers {
+  flex: 1;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.more-info {
+  margin-left: 5%;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  width: 30%;
+}
+
+.costs-baner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #FFFFFF;
+  border-radius: 7px;
+}
+.costs-banner {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.banner-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 35%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.bt_style {
+  margin-right: 4%;
+  margin-top: 4%;
+}
+
+/* Медиазапрос для планшетов */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .workers {
+    width: 100%;
+  }
+  .more-info {
+    width: 100%;
+  }
+}
+
+/* Медиазапрос для мобильных устройств */
+@media screen and (max-width: 576px) {
+  .container {
+    flex-direction: column;
+  }
+}

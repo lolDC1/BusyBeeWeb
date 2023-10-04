@@ -1,0 +1,47 @@
+<div *ngIf='dataloaded == true'>
+<div *ngIf='myData?.id == userId' style='margin-bottom: 200px'>
+  <div class="container">
+    <div class='user-head'>
+      <img class="user-photo" [src]="photoUrl" alt="Фото пользователя">
+
+      <div class='user-details'>
+        <h1 class="user-name">{{myData?.name}} {{myData?.surname}}</h1>
+        {{myData?.id}}
+      </div>
+    </div>
+    <div class='status'>{{taskData?.status}}</div>
+    <div class='order-conent'>
+      <h2>{{taskData?.title}}</h2>
+      <p>{{taskData?.description}}</p>
+      <p>День виконання: {{taskData?.date}}</p>
+      <p>Час виконання: {{taskData?.time}}</p>
+      <p>Оплата за працю: {{taskData?.cost}}</p>
+      <button *ngIf="taskData?.status == 'opened'" class='bt_style' (click)='abortTask()'>Закрити замовлення</button>
+      <button *ngIf="taskData?.status == 'assigned'" class='bt_style' (click)='abadonTask()'>Відмовити працівнику</button>
+      <button *ngIf="taskData?.status == 'closed' || 'done' " class='bt_style' (click)='deleteTask()'>Видалити замовлення</button>
+    </div>
+  </div>
+</div>
+<div *ngIf='myData?.id != userId' style='margin-bottom: 200px'>
+  <div class="container">
+    <div class='user-head'>
+      <img class="user-photo" [src]="photoUrl" alt="Фото пользователя">
+      <div class='user-details'>
+        <h1 class="user-name">{{userData?.name}} {{userData?.surname}}</h1>
+        {{userData?.id}}
+      </div>
+    </div>
+    <div class='status'>{{taskData?.status}}</div>
+    <div class='order-conent'>
+      <h2>{{taskData?.title}}</h2>
+      <p>{{taskData?.description}}</p>
+      <p>День виконання: {{taskData?.date}}</p>
+      <p>Час виконання: {{taskData?.time}}</p>
+      <p>Оплата за працю: {{taskData?.cost}}</p>
+      <button *ngIf="taskData?.status == 'opened'" class='bt_style' (click)='takeTask()'>Взяти замовлення</button>
+      <button *ngIf="taskData?.status == 'assigned' && taskData?.assignToId == myData?.id" (click)='abadonTask()'>Відмовитись від завдання</button>
+    </div>
+  </div>
+</div>
+</div>
+

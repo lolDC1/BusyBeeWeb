@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-body">
+    <div class="avatar-container">
+      <div class="avatar">
+        <img src="{{ avatar }}" alt="avatar" *ngIf="avatar" />
+      </div>
+      <div class="title">
+        {{ title }}
+      </div>
+      <div class="payment">
+        {{ payment }}грн
+      </div>
+    </div>
+    <div *ngIf="dataloaded" style='margin-left: 4.5em'>
+      <div class='sub-title' *ngFor='let info of userInfo'>
+        {{ info }}
+      </div>
+      <div class='status'>
+        {{ status }}
+      </div>
+    </div>
+    <div *ngIf="!dataloaded">
+      Loading...
+    </div>
+    <div class="content">
+      <button class='bt_style' (click)='openOrder()'>Детальніше</button>
+    </div>
+  </div>
+</div>
+

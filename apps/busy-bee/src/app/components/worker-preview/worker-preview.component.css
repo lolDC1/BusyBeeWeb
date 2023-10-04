@@ -1,0 +1,49 @@
+.item-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'photo text'
+    'buttons buttons'
+    'numbers numbers'
+    'comments comments';
+  gap: 10px;
+}
+
+.user-avatar {
+  grid-area: photo;
+
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info {
+  grid-area: text;
+  /* Стили для блока с текстом */
+}
+
+.user-connect-bt {
+  grid-area: buttons;
+
+  width: 284px;
+  height: 71px;
+  background: #455a9f;
+  border-radius: 60px;
+}
+
+.user-score {
+  grid-area: numbers;
+  /* Стили для блока с цифрами */
+}
+
+.user-reviews {
+  grid-area: user-reviews;
+  /* Стили для блока с компонентом комментариев */
+}

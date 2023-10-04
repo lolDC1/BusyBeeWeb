@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-body">
+    <div class="avatar-container">
+      <div class="avatar">
+        <img src="{{ avatar }}" class="avatar-ico" alt="avatar" />
+      </div>
+      <div class="title">
+        {{ title }}
+      </div>
+    </div>
+    <div class="content">
+      <div
+        class="card-links"
+        [ngClass]="{ expanded: expandText }"
+        *ngFor="let link of children; let i = index; trackBy: trackByFn"
+      >
+        <a *ngIf="i < 4" href="" class="card-links-style">
+          {{ link?.title }}
+        </a>
+        <a *ngIf="i >= 4 && expandText" href="" class="card-links-style">
+          {{ link?.title }}
+        </a>
+      </div>
+      <button
+        *ngIf="children && children.length > 4"
+        class="btn btn-link expand-button"
+        (click)="expandText = !expandText"
+      >
+        <span>
+          {{ expandText ? 'Згорнути' : 'Розгорнути' }}
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!--
+  <mat-card>
+    <mat-card-header>
+      <img mat-card-avatar src="{{avatar}}"/>
+      <mat-icon></mat-icon>
+      <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{id}}</p>
+      <mat-list role="list">
+        <img class="avatar-icon" src="{{avatar}}">
+        <mat-list-item role="listitem">{{sub_category}}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+-->

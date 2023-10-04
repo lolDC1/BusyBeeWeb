@@ -1,0 +1,67 @@
+.card {
+  width: 300px;
+  margin: 20px;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.avatar {
+  margin-right: 10px;
+}
+.avatar-ico{
+  width: 40px;
+  height: 40px;
+}
+
+.expandText {
+  transition: max-height 0.3s ease;
+}
+.expand-button {
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.expand-button:hover span{
+  color: #FEB201;
+  text-decoration: underline;
+}
+
+.title {
+  flex: 1;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-links {
+  overflow: hidden;
+  max-height: 100px; /* Начальная высота блока ссылок */
+  transition: max-height 0.3s ease; /* Плавный переход */
+}
+.card-links.expanded {
+  max-height: none; /* Максимальная высота блока ссылок при разворачивании */
+}
+.card-links a {
+  display: block;
+  margin-bottom: 5px;
+}
+.card-links-style {
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.card-links-style:hover {
+  color: #FEB201;
+  padding-left: 8px;
+  text-decoration: underline;
+}
+.card-links-style-expended {
+  margin-bottom: 0;
+}

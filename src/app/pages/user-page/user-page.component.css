@@ -1,0 +1,255 @@
+.user-banner {
+  height: 312px;
+  width: auto;
+  margin: 0 auto 0;
+  background: url("src/assets/img/banner2s.png") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 7px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #455A9F;
+  border: 5px solid;
+  border-bottom: transparent;
+  position: relative;
+}
+
+.rectangle {
+  position: relative;
+  background-color: transparent;
+  padding: 2%;
+  overflow: visible;
+  border-radius: 10px;
+  border-color: #455A9F;
+  border: 5px solid;
+  border-top: transparent;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.rectangle span {
+  font-size: 20px;
+}
+
+.user-head {
+  display: flex;
+  align-items: center;
+  margin: 4% 0 4% 8%;
+}
+
+.user-photo {
+  width: 100px; /* Задайте ширину фотографии пользователя по своему усмотрению */
+  height: auto;
+  margin-right: 10px; /* Расстояние между фото и деталями пользователя */
+  border-radius: 50%;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-tabs, .subscribe-category,
+.user-tasks, .subscribe-city,
+.payment-info, .notification-subscribe,
+.user-info {
+  margin-bottom: 2%;
+}
+
+.user-tabs .subscribe-category,
+.user-tasks, .subscribe-city,
+.payment-info, .notification-subscribe > span {
+  font-size: 18px;
+}
+
+.checkbox-notificatons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+
+.checkbox-item {
+  margin-bottom: 10px;
+  /* Другие стили для чекбоксов */
+}
+
+.user-name {
+  font-size: 24px; /* Задайте размер имени пользователя по своему усмотрению */
+  margin-bottom: 5px; /* Расстояние между именем пользователя и номером профиля */
+}
+
+.profile-number {
+  font-size: 16px; /* Задайте размер номера профиля по своему усмотрению */
+}
+
+.user-info {
+  margin-top: 2%;
+}
+
+/* Стили для блока пользователя */
+.user-block {
+  display: flex;
+  align-items: center;
+}
+
+/* Стили для имени и фамилии пользователя */
+.user-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.bt_style {
+  margin: 0.6em 0.6em;
+}
+
+/* Стили для кнопки */
+.action-button {
+  background-color: blue;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-left: 200px;
+}
+
+/* Стили для времени на сайте */
+.time-on-site {
+  margin-top: 5px;
+}
+
+/* Стили для блока с кружком и датой регистрации */
+.registration-block {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Стили для кружка с галочкой */
+.checkmark-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid green;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Стили для даты регистрации */
+.registration-date {
+  font-style: italic;
+}
+
+/* Стили для краткого описания */
+.description {
+  margin-top: 10px;
+}
+
+.email {
+  margin-bottom: 2%;
+}
+
+/* Стили для блока пользователя */
+.user-block {
+  display: flex;
+  align-items: center;
+}
+
+/* Стили для фотографии пользователя */
+.user-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+p {
+  margin: 0;
+}
+
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #f5a623;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #f5a623;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid #050038;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: opacity 0.2s;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  opacity: 1;
+}
+
+.file-upload {
+  display: inline-block;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-upload label:hover {
+  background-color: #ebebeb;
+}
+
+.file-upload label:active {
+  background-color: #dcdcdc;
+}
+
+.portfolio-table {
+  border-collapse: separate;
+  border-spacing: 12px 6px;
+}

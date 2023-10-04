@@ -1,0 +1,16 @@
+.stepper {
+  width: 300px; /* Задайте желаемую ширину степпера */
+  overflow: hidden;
+}
+
+.stepper-items {
+  display: flex;
+  transition: transform 0.5s;
+}
+
+.stepper-item {
+  flex: 0 0 100%;
+  width: 100%;
+  text-align: center;
+  /* Добавьте оформление для элементов степпера по вашему усмотрению */
+}

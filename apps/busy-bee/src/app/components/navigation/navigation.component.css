@@ -1,0 +1,453 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #f6f1ec;
+  outline: none;
+}
+nav {
+  width: 100%;
+  padding: 0.9rem;
+  border-bottom: 1px solid #d2d2d0;
+}
+
+#navbar {
+  position: relative;
+  top: -100px;
+  left: 0;
+  z-index: 100;
+  transition: top 0.3s ease-in-out;
+  background-color: #fff;
+  flex-shrink: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#navbar.show {
+  top: 0;
+}
+#navbar .shape {
+  width: 150px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding-left: 20%; /* Увеличьте или уменьшите значение, чтобы настроить отступы */
+  padding-right: 20%;
+  background-color: #f6f1ec;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  overflow: visible;
+  z-index: 1;
+}
+.navbar-show {
+  transform: translateY(0);
+}
+
+.navbar-hide {
+  transform: translateY(-100%);
+}
+
+.centered-items {
+  display: flex;
+  align-items: center;
+}
+
+mat-icon.logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.top {
+  width: 61%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+figure {
+  flex-grow: 1;
+}
+
+.logo {
+  flex-grow: 1;
+  margin-right: 2%;
+}
+
+.mat-menu-panel.menu-dopmenu {
+  display: none;
+}
+
+.mat-menu-panel.menu-dopmenu:hover {
+  display: block;
+}
+
+.popover {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 100%; /* Позиционирование поповера под навбаром */
+  left: 0;
+  margin-top: 10px; /* Добавьте отступ сверху для разделения от навбара */
+  z-index: 3;
+  /* Дополнительные стили по вашему выбору */
+}
+
+/* Стили для заголовка поповера */
+.popover .popover-header {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Стили для тела поповера */
+.popover .popover-body {
+  padding: 0;
+}
+.popover-body {
+  padding: 0;
+}
+::ng-deep .popover-body {
+  padding: 0 !important;
+}
+
+/* Стили для элементов списка в поповере */
+.popover .popover-body ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popover .popover-body li {
+  color: #333;
+  font-size: 14px;
+  /* Дополнительные стили по вашему выбору */
+}
+.popover-container {
+  position: absolute;
+  z-index: 9999; /* Adjust the z-index value as needed */
+  /* Add any additional styling properties */
+
+  /* Ensure the popover expands to fit its content */
+  display: inline-block;
+  white-space: nowrap;
+  overflow: visible;
+}
+.popover-content {
+  width: 200px;
+  white-space: normal;
+  flex-direction: column;
+  max-height: 200px; /* Set the desired height for the scrollable content */
+  position: absolute;
+  z-index: 9999;
+  display: inline-block;
+  overflow: visible;
+}
+
+.popover-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popover-content .list-item-button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+}
+.popover-content .list-item-button:hover {
+  width: 100%;
+  border: none;
+  background-color: #455a9f;
+  text-align: left;
+}
+
+.additional-list {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 200px; /* Update with the desired width */
+  background-color: #f2f2f2; /* Update with the desired background color */
+  padding: 8px;
+}
+
+.additional-list-item {
+  width: 100%;
+  padding: 4px;
+  margin-bottom: 4px;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+}
+
+.bt_login,
+.bt_specialist {
+  flex-shrink: 0;
+}
+
+.bt_specialist {
+  background-color: #050038;
+  padding: 10px 24px;
+  border-radius: 60px;
+  border: 1px solid #d2d2d0;
+}
+.bt_specialist a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+}
+.bt_specialist:hover {
+  background-color: #455a9f;
+  border: 1px solid #455a9f;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.bt_login {
+  background-color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 60px;
+  border: 1px solid #d2d2d0;
+  margin-right: 10px;
+}
+.bt_login a {
+  color: #050038;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+}
+.bt_login:hover {
+  border: 1px solid #050038;
+  transition: 0.2s;
+  cursor: pointer;
+  height: 45px;
+}
+
+.bt_catalogue {
+  /*background-color: #ffffff;*/
+  width: 240px;
+  height: 45px;
+  border-radius: 60px;
+  border: 1px solid #feb201;
+  font-size: 1em;
+}
+.bt_catalogue a {
+  color: #feb201;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+}
+.bt_catalogue:after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: url(../../../assets/img/arrow_down_orange.svg);
+  margin-left: 2px;
+}
+.bt_catalogue:hover {
+  background-color: #ffffff;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.bt_catalogue select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.center {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/** Custom Select **/
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+.custom-select-wrapper select {
+  display: none;
+}
+.custom-select {
+  position: relative;
+  display: inline-block;
+}
+.custom-select-trigger {
+  position: relative;
+  display: block;
+  width: 130px;
+  padding: 0 84px 0 22px;
+  font-size: 22px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 60px;
+  background: #5c9cd8;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.custom-select-trigger:after {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  right: 25px;
+  margin-top: -3px;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate(45deg) translateY(-50%);
+  transition: all 0.4s ease-in-out;
+  transform-origin: 50% 0;
+}
+.custom-select.opened .custom-select-trigger:after {
+  margin-top: 3px;
+  transform: rotate(-135deg) translateY(-50%);
+}
+.custom-options {
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  min-width: 100%;
+  margin: 15px 0;
+  border: 1px solid #b5b5b5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
+  background: #fff;
+  transition: all 0.4s ease-in-out;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-15px);
+}
+.custom-select.opened .custom-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0);
+}
+.custom-options:before {
+  position: absolute;
+  display: block;
+  content: '';
+  bottom: 100%;
+  right: 25px;
+  width: 7px;
+  height: 7px;
+  margin-bottom: -4px;
+  border-top: 1px solid #b5b5b5;
+  border-left: 1px solid #b5b5b5;
+  background: #fff;
+  transform: rotate(45deg);
+  transition: all 0.4s ease-in-out;
+}
+.option-hover:before {
+  background: #f9f9f9;
+}
+.custom-option {
+  position: relative;
+  display: block;
+  padding: 0 22px;
+  border-bottom: 1px solid #b5b5b5;
+  font-size: 18px;
+  font-weight: 600;
+  color: #b5b5b5;
+  line-height: 47px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.custom-option:first-of-type {
+  border-radius: 4px 4px 0 0;
+}
+.custom-option:last-of-type {
+  border-bottom: 0;
+  border-radius: 0 0 4px 4px;
+}
+.custom-option:hover,
+.custom-option.selection {
+  background: #f9f9f9;
+}
+
+figure input[type='search'] {
+  width: 300px;
+  height: auto;
+}
+figure input[type='submit'] {
+  width: 200px;
+  height: auto;
+  border: none;
+  margin-right: 10px;
+}
+
+figure {
+  width: 48%;
+  /*background-color: pink;*/
+  display: flex;
+}
+
+mat-icon {
+  margin-right: 12px;
+}
+
+.dropdown {
+  display: none;
+}
+
+.dropdown.open {
+  display: block;
+  /* Дополнительные стили для открытого состояния списка */
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    font-size: 24px;
+  }
+
+  .bt_catalogue {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Другие стили для мобильных устройств */
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .logo {
+    font-size: 28px;
+  }
+
+  .bt_catalogue {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Другие стили для планшетов и средних экранов */
+}

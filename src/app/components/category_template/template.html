@@ -1,0 +1,140 @@
+<mat-stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Create category</ng-template>
+      <div>
+        <dropdown-form/>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Customize Template">
+    <form class="px-4 py-3">
+    <p>Description</p>
+    </form>
+    <mat-divider/>
+    <form class="px-4 py-3">
+    <p>Date-Time</p>
+    </form>
+    <mat-divider/>
+    <form class="px-4 py-3">
+      <div>
+        Place of working:
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="None">None</mat-button-toggle>
+          <mat-button-toggle value="Point">Concrete Place</mat-button-toggle>
+          <mat-button-toggle value="PointAB">Two Points</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </form>
+    <mat-divider/>
+    <form class="px-4 py-3">
+      <div class="mb-3">
+        <p>Payment:</p>
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0">
+          <span matTextPrefix>$&nbsp;</span>
+        </mat-form-field>
+      </div>
+      <div class="mb-3">
+        <p>Create Category</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Select an option</mat-label>
+          <mat-select [(value)]="ChooseCat">
+            <mat-option value="None">None</mat-option>
+            <mat-option value="Radio">Radio</mat-option>
+            <mat-option value="Box">Box</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="mb-3">
+        <label for="CreateCategory">Create category</label>
+        <input
+          type="text"
+          class="form-control"
+          id="CreateCategory"
+          placeholder="Category..."
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary">Create</button>
+    </form>
+    <form class="px-4 py-3">
+      <div class="mb-3">
+        <p>Child</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Select an option</mat-label>
+          <mat-select [formControl]="catControl" [disabled]="ChooseCat == 'None'">
+            <mat-option value="None">None</mat-option>
+            <mat-optgroup *ngFor="let group of checkChilds" [label]="group.name" [disabled]="group.disabled">
+              <mat-option *ngFor="let child of group.cat" [value]="child.value">
+                {{child.viewValue}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="mb-3">
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Child name..."
+        >
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0">
+          <span matTextPrefix>$&nbsp;</span>
+        </mat-form-field>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary">Add</button>
+    </form>
+  </mat-step>
+  <mat-step label="Step 3">
+    <button type="submit" class="btn btn-primary">Send</button>
+  </mat-step>
+  <!-- Icon overrides. -->
+  <ng-template matStepperIcon="phone">
+    <mat-icon>call_end</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="chat">
+    <mat-icon>forum</mat-icon>
+  </ng-template>
+</mat-stepper>
+
+
+
+
+
+<!--
+
+        <div>
+          <mat-button-toggle-group [formControl]="checkGroup" aria-label="Check-group">
+            <mat-button-toggle value="Radio">Radio</mat-button-toggle>
+            <mat-button-toggle value="Box">Check Box</mat-button-toggle>
+          </mat-button-toggle-group>
+          <button mat-button (click)="toggleVision()">Create Category</button>
+        </div>
+        <div class="RadioCat">
+          <mat-form-field appearance="fill">
+            <mat-label>Add radio</mat-label>
+            <input matInput type="text" class="example-right-align" placeholder="None" [disabled]="checkGroup.value != 'Radio'">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Value</mat-label>
+            <input matInput type="number" placeholder="0" [disabled]="checkGroup.value != 'Radio'">
+          </mat-form-field>
+        </div>
+        <div class="CheckCat">
+          <mat-form-field appearance="fill">
+            <mat-label>Add check-box</mat-label>
+            <input matInput type="text" class="example-right-align" placeholder="None" [disabled]="checkGroup.value != 'Box'">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Value</mat-label>
+            <input matInput type="number" placeholder="0" [disabled]="checkGroup.value != 'Box'">
+          </mat-form-field>
+          </div>
+-->

@@ -1,0 +1,60 @@
+<mat-toolbar [class.navbar-show]="showNavbar" [class.navbar-hide]="!showNavbar" class="navbar mat-elevation-z4">
+  <div class="centered-items">
+
+    <div class="logo">
+      <img src="assets/img/logo.svg" alt="My logo" class="logo-img">
+    </div>
+
+
+    <button class="bt_catalogue" style="margin-right: 10px" (click)="togglePopover()">
+      Створити замовлення
+    </button>
+    <!--
+    <ng-template #popoverContent>
+      <div class="popover-content">
+        <ul>
+          <li *ngFor="let item of dropdownItems">
+            <button class="list-item-button" (click)="handleFirstListClick(item); openAdditionalPopover(item, $event)">{{ item }}</button>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+
+    <div class="additional-list" *ngIf="isAdditionalPopoverOpen">
+      <button class="additional-list-button" [ngbPopover]="additionalPopoverContent" popoverTitle="Дополнительный список" placement="bottom" triggers="click">{{ currentSelectedItem }}</button>
+    </div>
+
+    <ng-template #additionalPopoverContent>
+      <div class="additional-popover-content">
+        <ul>
+          <li *ngFor="let item of additionalItems">
+            <button class="additional-list-item" (click)="handleAdditionalItemClick(item)">{{ item }}</button>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+    -->
+
+    <figure>
+      <input type="search" placeholder="Що треба зробити?">
+      <input type="submit" value="Знайти фахівця">
+    </figure>
+
+    <button *ngIf="!authenticated" (click)="login()" mat-button class="bt_login">
+      <a>
+        <img src="../../../assets/img/user.svg" alt="">
+        Увійти
+      </a>
+    </button>
+    <span *ngIf="authenticated">{{displayName}}</span>
+    <button *ngIf="authenticated" (click)="logout()" mat-button class="bt_login">
+      <a>
+        <img *ngIf="avatarUrl" src="{{avatarUrl}}" alt="">
+        Вийти
+      </a>
+    </button>
+    <B
+
+    <button mat-button class="bt_specialist"><a href="/order-page">Стати фахівцем</a></button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,285 @@
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script|Roboto);
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to right top, #7f3860, #793569, #703473, #62357e, #4d3888, #3f4595, #2c519f, #005ca8, #0071b0, #0084ae, #0094a5, #0ca299);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.panda {
+  position: relative;
+  width: 200px;
+  margin: 50px auto;
+}
+
+.face {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 100%;
+  margin: 50px auto;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  position: relative;
+}
+
+.ear,
+.ear:after {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #000;
+  z-index: 5;
+  border: 10px solid #fff;
+  left: -15px;
+  top: -15px;
+  border-radius: 100%;
+}
+
+.ear:after {
+  content: '';
+  left: 125px;
+}
+
+.eye-shade {
+  background: #000;
+  width: 50px;
+  height: 80px;
+  margin: 10px;
+  position: absolute;
+  top: 35px;
+  left: 25px;
+  transform: rotate(220deg);
+  border-radius: 25px/20px 30px 35px 40px;
+}
+
+.eye-shade.rgt {
+  transform: rotate(140deg);
+  left: 105px;
+}
+
+.eye-white {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #fff;
+  z-index: 500;
+  left: 40px;
+  top: 80px;
+  overflow: hidden;
+}
+
+.eye-white.rgt {
+  right: 40px;
+  left: auto;
+}
+
+.eye-ball {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 20px;
+  top: 20px;
+  max-width: 10px;
+  max-height: 10px;
+  transition: 0.1s;
+}
+
+.eye-ball:after {
+  content: '';
+  background: #000;
+  position: absolute;
+  border-radius: 100%;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.nose {
+  position: absolute;
+  height: 20px;
+  width: 35px;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50px 20px/30px 15px;
+  transform: rotate(15deg);
+  background: #000;
+}
+
+.body {
+  background: #fff;
+  position: absolute;
+  top: 200px;
+  left: -20px;
+  border-radius: 100px 100px 100px 100px/126px 126px 96px 96px;
+  width: 250px;
+  height: 382px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hand,
+.hand:after,
+.hand:before {
+  width: 40px;
+  height: 30px;
+  border-radius: 50px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  background: #000;
+  margin: 5px;
+  position: absolute;
+  top: 70px;
+  left: -25px;
+}
+
+.hand:after,
+.hand:before {
+  content: '';
+  left: -5px;
+  top: 11px;
+}
+
+.hand:before {
+  top: 26px;
+}
+
+.hand.rgt,
+.rgt.hand:after,
+.rgt.hand:before {
+  left: auto;
+  right: -25px;
+}
+
+.hand.rgt:after,
+.hand.rgt:before {
+  left: auto;
+  right: -5px;
+}
+
+.foot {
+  top: 360px;
+  left: -80px;
+  position: absolute;
+  background: #000;
+  z-index: 1400;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 40px 40px 39px 40px/26px 26px 63px 63px;
+  width: 82px;
+  height: 120px;
+  margin-top: 135px;
+}
+
+.foot:after {
+  content: '';
+  width: 55px;
+  height: 65px;
+  background: #222;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.foot .finger,
+.foot .finger:after,
+.foot .finger:before {
+  position: absolute;
+  width: 25px;
+  height: 35px;
+  background: #222;
+  border-radius: 100%;
+  top: 10px;
+  right: 5px;
+}
+
+.foot .finger:after,
+.foot .finger:before {
+  content: '';
+  right: 30px;
+  width: 20px;
+  top: 0;
+}
+
+.foot .finger:before {
+  right: 55px;
+  top: 5px;
+}
+
+.foot.rgt {
+  left: auto;
+  right: -80px;
+}
+
+.foot.rgt .finger,
+.foot.rgt .finger:after,
+.foot.rgt .finger:before {
+  left: 5px;
+  right: auto;
+}
+
+.foot.rgt .finger:after {
+  left: 30px;
+  right: auto;
+}
+
+.foot.rgt .finger:before {
+  left: 55px;
+  right: auto;
+}
+
+.form {
+  max-width: 400px;
+  padding: 20px 40px;
+  background: #fff;
+  height: 400px;
+  margin: auto;
+  display: block;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  position: relative;
+  transform: translateY(-100px);
+  z-index: 500;
+  border: 1px solid #eee;
+}
+
+.form .up {
+  transform: translateY(-180px);
+}
+
+h1 {
+  color: #FF4081;
+  font-family: 'Dancing Script', cursive;
+}
+
+.btn {
+  background: #fff;
+  padding: 5px;
+  width: 150px;
+  height: 35px;
+  border: 1px solid #FF4081;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 50px #FF4081 inset;
+  color: #fff;
+}
+
+.btn:hover {
+  box-shadow: 0 0 #FF4081 inset;
+  color: #FF4081;
+}
+
+.btn:focus {
+  outline: none;
+}

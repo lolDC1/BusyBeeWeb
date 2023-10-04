@@ -1,0 +1,192 @@
+<form [formGroup]="form" class="container">
+  <mat-divider></mat-divider>
+
+  <h3>Деталі замовлення</h3>
+  <div class="comment-order">
+    <div class="grid-container">
+      <div class="text-label">Що потрібно зробити (коротко)?</div>
+      <div class="text-input">
+        <mat-form-field class="text-order-less">
+          <mat-label>Write order few details</mat-label>
+          <input
+            matInput
+            formControlName="title"
+            placeholder="Need description"
+            maxlength="200"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="text-label">Детально опишіть ваше замовлення</div>
+      <div class="text-input">
+        <mat-form-field class="text-order-more">
+          <mat-label>Write order full details</mat-label>
+          <textarea
+            matInput
+            formControlName="description"
+            placeholder="Not necessary"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="text-label">confidentialInfo</div>
+      <div class="text-input">
+        <mat-form-field class="text-order-more">
+          <mat-label>Write order full details</mat-label>
+          <textarea
+            matInput
+            formControlName="confidentialInfo"
+            placeholder="Not necessary"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+  <h3>Адреса виконання замовлення</h3>
+
+  <div class="place-order">
+    <ng-select formControlName="cityId">
+      <ng-option *ngFor="let city of cities" [value]="city.id">{{
+        city.title
+      }}</ng-option>
+    </ng-select>
+
+    <div *ngFor="let item of orderAddressDataTemplate?.dataTemplateItems">
+      <ng-container [ngSwitch]="getHtmlInputType(item.type)">
+        <app-dynamic-input
+          *ngSwitchCase="'text'"
+          [formName]="form.controls.orderAddressItems"
+          [field]="{ label: item.title, fieldName: item.id }"
+        ></app-dynamic-input>
+        <app-dynamic-radio
+          *ngSwitchCase="'radio'"
+          [formName]="form.controls.orderAddressItems"
+          [field]="{
+            label: item.title,
+            fieldName: item.id,
+            options: item.selection
+          }"
+        ></app-dynamic-radio>
+        <app-dynamic-checkbox
+          *ngSwitchCase="'checkbox'"
+          [formName]="form.controls.orderAddressItems"
+          [field]="{
+            label: item.title,
+            fieldName: item.id,
+            options: item.selection
+          }"
+        ></app-dynamic-checkbox>
+      </ng-container>
+    </div>
+
+    <!--    <form [formGroup]="formName">-->
+    <!--      <h3>{{field.label}}</h3>-->
+    <!--      <label *ngFor="let option of field.options">-->
+
+    <!--        <label ngFor="let option of field.options">-->
+    <!--          <input type="radio"-->
+    <!--                 [name]="field.fieldName"-->
+    <!--                 [formControlName]="field.fieldName"-->
+    <!--                 [value]="option.value"-->
+    <!--          >-->
+    <!--          {{option.label}}-->
+    <!--        </label>-->
+    <!--      </label>-->
+    <!--    </form>-->
+
+    <!--    <form [formGroup]="form.controls.orderAddressItems">-->
+    <!--      <div *ngFor="let item of orderAddressDataTemplate?.dataTemplateItems">-->
+    <!--        <label>{{item.title}}</label>-->
+    <!--        <input type="{{getHtmlInputType(item.type)}}" [formControlName]="item.id"/>-->
+    <!--      </div>-->
+    <!--    </form>-->
+
+    <!--    <mat-form-field class="city-select">-->
+    <!--      <mat-label>Місто</mat-label>-->
+    <!--      <mat-select>-->
+    <!--        <mat-option>Odessa</mat-option>-->
+    <!--        <mat-option>Kiev</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <mat-form-field class="destination-select">-->
+    <!--      <mat-label>Адреса</mat-label>-->
+    <!--      <input matInput>-->
+    <!--    </mat-form-field>-->
+  </div>
+  <mat-divider></mat-divider>
+
+  <h3>Дата виконання замовлення</h3>
+  <mat-form-field>
+    <mat-label>Year</mat-label>
+    <input matInput [matDatepicker]="dp" formControlName="date" />
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp> </mat-datepicker>
+  </mat-form-field>
+  <h6>Коли необхідно виконати замовлення?</h6>
+
+  <mat-radio-group aria-label="Select an option" formControlName="time">
+    <mat-radio-button value="{{ TaskTimes.Anytime }}"
+      >В будь-який час</mat-radio-button
+    >
+    <mat-radio-button value="{{ TaskTimes.From8To12 }}"
+      >З 8:00 до 12:00</mat-radio-button
+    >
+    <mat-radio-button value="{{ TaskTimes.From12To16 }}"
+      >З 12:00 до 16:00</mat-radio-button
+    >
+    <mat-radio-button value="{{ TaskTimes.From16To22 }}"
+      >З 16:00 до 22:00</mat-radio-button
+    >
+  </mat-radio-group>
+  <mat-divider></mat-divider>
+  <h1>Оплата роботи</h1>
+
+  <div *ngFor="let item of paymentDataTemplate?.dataTemplateItems">
+    <ng-container [ngSwitch]="getHtmlInputType(item.type)">
+      <app-dynamic-input
+        *ngSwitchCase="'text'"
+        [formName]="form.controls.paymentItems"
+        [field]="{ label: item.title, fieldName: item.id }"
+      ></app-dynamic-input>
+      <app-dynamic-radio
+        *ngSwitchCase="'radio'"
+        [formName]="form.controls.paymentItems"
+        [field]="{
+          label: item.title,
+          fieldName: item.id,
+          options: item.selection
+        }"
+      ></app-dynamic-radio>
+      <app-dynamic-checkbox
+        *ngSwitchCase="'checkbox'"
+        [formName]="form.controls.paymentItems"
+        [field]="{
+          label: item.title,
+          fieldName: item.id,
+          options: item.selection
+        }"
+      ></app-dynamic-checkbox>
+    </ng-container>
+  </div>
+
+  <mat-form-field class="text-order-less">
+    <mat-label>Write order few details</mat-label>
+    <input
+      matInput
+      formControlName="cost"
+      type="number"
+      [step]="100"
+      required
+    />
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="publish()">
+    Опублiкувати
+  </button>
+</form>

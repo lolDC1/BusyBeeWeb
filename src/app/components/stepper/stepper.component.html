@@ -1,0 +1,5 @@
+<div class="stepper">
+  <div class="stepper-items" [style.transform]="'translateX(' + (-activeIndex * 100) + '%)'">
+    <div class="stepper-item" *ngFor="let item of items">{{ item }}</div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+.card {
+  margin: 20px;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.avatar {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  overflow: hidden;
+}
+.avatar-ico{
+  width: 40px;
+  height: 40px;
+}
+
+.expandText {
+  transition: max-height 0.3s ease;
+}
+.expand-button {
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.expand-button:hover span{
+  color: #FEB201;
+  text-decoration: underline;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 14px;
+  color: #FEB201;
+  margin-bottom: 5px;
+  margin-left: 0.5em;
+  display: inline-block;
+}
+
+.title {
+  flex: 1;
+  font-weight: bold;
+  font-size: 20px;
+}
+.sub-title {
+  font-weight: bold;
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 5px;
+  margin-left: 0.5em;
+  display: inline-block;
+}
+.payment {
+  font-weight: bold;
+  text-align: right;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-links {
+  overflow: hidden;
+  max-height: 100px; /* Начальная высота блока ссылок */
+  transition: max-height 0.3s ease; /* Плавный переход */
+}
+.card-links.expanded {
+  max-height: none; /* Максимальная высота блока ссылок при разворачивании */
+}
+.card-links a {
+  display: block;
+  margin-bottom: 5px;
+}
+.card-links-style {
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.card-links-style:hover {
+  color: #FEB201;
+  padding-left: 8px;
+  text-decoration: underline;
+}
+.card-links-style-expended {
+  margin-bottom: 0;
+}
+
+.bt_style {
+  width: 30%;
+}

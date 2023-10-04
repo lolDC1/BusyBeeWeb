@@ -1,0 +1,81 @@
+        <form class="px-4 py-3">
+          <div class="mb-3">
+              <p>Top category</p>
+            <mat-form-field appearance="fill">
+              <mat-label>Select an option</mat-label>
+              <mat-select [(value)]="selectedhead" [(ngModel)]="selectedhead">
+                <mat-option value="None">None</mat-option>
+                <mat-option value="option1">Option 1</mat-option>
+                <mat-option value="option2">Option 2</mat-option>
+                <mat-option value="option3">Option 3</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <label for="CreateTopCategory">Create category</label>
+            <input
+              type="text"
+              class="form-control"
+              id="CreateTopCategory"
+              placeholder="Category..."
+              [disabled]="selectedhead != 'None'"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="selectedhead != 'None'">Create</button>
+        </form>
+        <mat-divider/> <!---------------MID------------------>
+        <form class="px-4 py-3">
+          <div class="mb-3">
+            <p>Mid category</p>
+              <mat-form-field appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="selectedmid" [disabled]="selectedhead == 'None'">
+                  <mat-option value="None">None</mat-option>
+                  <mat-option value="option1">Option 1</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <label for="CreateMidCategory">Create category</label>
+            <input
+              type="text"
+              class="form-control"
+              id="CreateMidCategory"
+              placeholder="Category..."
+              [disabled]="selectedmid != 'None' || selectedhead == 'None'"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="selectedmid != 'None' || selectedhead == 'None'">Create</button>
+        </form>
+        <mat-divider/> <!---------------LOW------------------>
+        <form class="px-4 py-3">
+          <div class="mb-3">
+            <p>Low category</p>
+            <mat-form-field appearance="fill" >
+              <mat-label>Select an option</mat-label>
+              <mat-select [(value)]="selectedlow" [disabled]="selectedmid == 'None'">
+                <mat-option value="None">None</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <label for="CreateLowCategory">Create category</label>
+            <input
+              type="text"
+              class="form-control"
+              id="CreateLowCategory"
+              placeholder="Category..."
+              [disabled]="selectedmid == 'None'"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="selectedmid == 'None'">Create</button>
+        </form>

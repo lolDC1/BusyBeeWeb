@@ -1,0 +1,370 @@
+header {
+  height: 468px;
+  width: 1207px;
+  margin: 0 auto 0;
+  background: url('src/assets/img/banner.png') center center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  position: relative;
+}
+
+header h1,
+header p {
+  color: white;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 3em;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.banner {
+  height: 430px;
+  margin: auto;
+  background: url('src/assets/img/Banner-low.png') center center no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.banner h3 {
+  margin-left: 25%;
+  margin-top: 5%;
+  color: white;
+}
+.banner p {
+  margin-left: 25%;
+  color: white;
+}
+.banner button {
+  margin-left: 25%;
+  color: white;
+  background-color: #fe6575;
+}
+
+.some-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.home-img {
+  position: absolute;
+  width: 1227px;
+  height: 411px;
+  left: 92px;
+  top: 71px;
+}
+
+.rectangle {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: transparent;
+  border: 5px solid black;
+  overflow: visible;
+  border-radius: 10px;
+}
+
+.carousel-container {
+  width: 100%;
+}
+
+.top-section {
+  position: relative;
+  z-index: -2;
+}
+
+.rectangle::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-top {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.image-top img {
+  width: 34px;
+  height: 28px;
+}
+
+.text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  height: 60%;
+  padding: 40px 10px 10px;
+  border-top: 5px solid black;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.comments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+.comments h3 {
+  margin: 0 10px;
+}
+
+.comments-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15%;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.button-container {
+  background-color: white;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  margin: 0 auto 0;
+  text-align: center;
+  width: 1207px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+}
+
+.button-row .btn {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: none;
+  color: black;
+  margin: 0 10px;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.bt_style {
+  background-color: #feb201;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 60px;
+  border: 1px solid #feb201;
+}
+.bt_style a {
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+}
+.bt_style:hover {
+  border: 1px solid #050038;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: transparent;
+}
+
+.btn:hover span {
+  color: #feb201;
+}
+
+.btn-icon {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+  margin-bottom: 4px;
+}
+
+.btn-text {
+  margin-top: 4px;
+}
+
+.content {
+  padding: 16px;
+}
+
+.category-card {
+  width: 300px;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+.Home-ico {
+  width: 25px;
+  height: 61px;
+}
+
+.Delivery-ico {
+  width: 47px;
+  height: 61px;
+}
+
+.Freelance-ico {
+  width: 40px;
+  height: 61px;
+}
+
+.Tutor-ico {
+  width: 50px;
+  height: 61px;
+}
+
+.Category-ico {
+  width: 45px;
+  height: 61px;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mat-step-header {
+  background-color: transparent;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-image {
+  height: 70%;
+}
+
+.footer-links {
+  flex: 1;
+}
+
+.footer-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-links li:last-child {
+  margin-right: 0;
+}
+
+/* Медиазапрос для планшетов */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .row {
+  }
+  header {
+  }
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+  .heaer {
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    flex-direction: column;
+  }
+  .footer {
+    /* и т.д. */
+  }
+}

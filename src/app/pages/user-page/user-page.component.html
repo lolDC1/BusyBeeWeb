@@ -1,0 +1,186 @@
+<div *ngIf="userModel" class="container">
+  <div class='user-banner'>
+  </div>
+  <div class='rectangle'>
+    <span>Анкета відпралена на доопрацювання</span>
+  </div>
+
+  <div class='user-head'>
+    <img class="user-photo" [src]="photoUrl" alt="Фото пользователя" (click)="selectImage.click()">
+    <input type="file" (change)="updateImage($event)" style="display: none" #selectImage>
+
+    <div class='user-details'>
+      <h1 class="user-name">{{userModel.name}} {{userModel.surname}}</h1>
+      <p class='profile-number'>User Id: {{userModel.id}}</p>
+    </div>
+  </div>
+
+  <div class="user-tabs">
+    <mat-tab-group>
+      <mat-tab label="Загальна інформація">
+        <div class="user-info">
+          <div class='email'>
+            <span label='E-mail'>Контактний email: {{userModel.contactEmail ?? notSetText}}</span>
+          </div>
+          <div class="user-city">Місто: {{userModel.cityName ?? notSetText}}</div>
+          <div class="user-birth-date">Дата народження: {{(userModel.birthday | date) ?? notSetText}}</div>
+          <div class="user-gender">Стать: {{genderViewValue}}</div>
+          <div class="user-dop-info">Про себе: {{userModel.aboutMyself ?? ""}}</div>
+        </div>
+
+        <div class='subscribe-category'>
+          <span>Мої оголошення</span>
+          <div class="category-sbuscribe-buttons">
+            <button *ngFor="let category of userModel.orderCategories" class="bt_style" (click)='orderCategoryPage(category)'>{{category}}</button>
+            <!--
+              <button *ngFor="let category of categories" class="bt_style">{{ category }}</button>
+             -->
+          </div>
+        </div>
+        <div class='subscribe-city'>
+          <span>Міста замовлень</span>
+          <div class="city-sbuscribe-buttons">
+            <button *ngFor="let city of userModel.orderCities" class="bt_style">{{city}}</button>
+
+            <!--            <button  class="bt_style">category</button>-->
+            <!--            <button  class="bt_style">categorycategorycategorycategory</button>-->
+            <!--            <button  class="bt_style">category</button>-->
+
+            <!--
+              <button *ngFor="let city of cities" class="bt_style">{{ city }}</button>
+             -->
+          </div>
+        </div>
+        <div class='payment-info'>
+          <span>Платіжні дані</span>
+          <p style='margin-top: 2%'>УВАГА: Ви не можете прив'язати до акаунта картку Visa або MasterCard будь-якого
+            типу.</p>
+          <p style='margin: 0.3em 0'>Вам потрібно оговорити усі питання стосовно плати з замовником.</p>
+          <p>ВАЖЛИВО: Ми не несемо відповідальність у випадку несплати за виконану працю.</p>
+        </div>
+
+      </mat-tab>
+      <mat-tab label="Портфоліо">
+        <form *ngIf="isOwner" [formGroup]="uploadForm" (ngSubmit)="uploadPortfolio()">
+          <div class="d-flex flex-row">
+            <div>
+              <input type="file" name="profile" (change)="onFileSelect($event)"/>
+            </div>
+            <div>
+              <button mat-raised-button type="submit">Upload</button>
+            </div>
+          </div>
+        </form>
+
+        <table class="portfolio-table">
+          <tr *ngFor="let portfolio of userModel.portfolioFiles">
+            <td>{{portfolio.originalName}}</td>
+            <td>
+              <button mat-raised-button (click)="downloadPortfolio(portfolio.id)">
+                Download
+              </button>
+            </td>
+            <td *ngIf="isOwner">
+              <button mat-raised-button (click)="removePortfolio(portfolio.id)">
+                Remove
+              </button>
+            </td>
+            <!--              <tr>-->
+            <!--                <td>Alfreds Futterkiste</td>-->
+            <!--                <td>Maria Anders</td>-->
+            <!--                <td>Germany</td>-->
+            <!--              </tr>-->
+            <!--              <tr>-->
+            <!--                <td>Centro comercial Moctezuma</td>-->
+            <!--                <td>Francisco Chang</td>-->
+            <!--                <td>Mexico</td>-->
+            <!--              </tr>-->
+
+
+            <!--            <span>{{portfolio.originalName}}</span>-->
+            <!--                          <button mat-raised-button (click)="downloadPortfolio(portfolio.id)">-->
+            <!--                            Download-->
+            <!--                          </button>-->
+            <!--                          <button mat-raised-button (click)="removePortfolio(portfolio.id)" class="ms-3">-->
+            <!--                            Remove-->
+            <!--                          </button>-->
+          </tr>
+        </table>
+
+
+        <p>Фото виконаних робіт — відмінний шанс показати замовнику все, що ви вмієте. Профіль з якісними фотографіями
+          отримує більше відгуків. Докладніше про створення портфоліо.</p>
+        <span>Video link: {{userModel.videoLink ?? notSetText}}</span>
+
+
+        <!--        <div class="file-upload">-->
+        <!--          <label for="file-input">Прикрепить файл:</label>-->
+        <!--          <input id="file-url-input" type="file">-->
+        <!--        </div>-->
+        <p>Чудова можливість розповісти про себе — завантажити в ваше портфоліо відео. Профілі фахівців з відео
+          отримують більше уваги та викликають довіру замовників. Рекомендована тривалість відео — 5 хвилин.</p>
+      </mat-tab>
+
+      <mat-tab *ngIf="isOwner" label="Налаштування">
+        <form [formGroup]="form" class="d-flex flex-column" style="box-sizing: border-box">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" maxlength="200" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Surname</mat-label>
+            <input matInput formControlName="surname" maxlength="200" required>
+          </mat-form-field>
+
+          <ng-select formControlName="cityId">
+            <ng-option *ngFor="let city of cities" [value]="city.id">{{city.title}}</ng-option>
+          </ng-select>
+
+          <mat-form-field>
+            <mat-label>Birthday</mat-label>
+            <input matInput [matDatepicker]="dp" formControlName="birthday">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp>
+            </mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                {{gender.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" formControlName="phone">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="contactEmail">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>AboutMyself</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="aboutMyself"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>VideoLink</mat-label>
+            <input matInput formControlName="videoLink">
+          </mat-form-field>
+
+          <button mat-flat-button color="primary" (click)="update()">
+            Update
+          </button>
+        </form>
+
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

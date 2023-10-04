@@ -1,0 +1,47 @@
+.container {
+
+}
+
+#create-task {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#create-task h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#create-task label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#create-task input[type="text"],
+#create-task textarea,
+#create-task select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#create-task button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#create-task button[type="submit"]:hover {
+  background-color: #555;
+}
+

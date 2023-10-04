@@ -1,0 +1,29 @@
+<mat-toolbar [class.navbar-show]="showNavbar" [class.navbar-hide]="!showNavbar" class="navbar mat-elevation-z4">
+  <div class="centered-items">
+
+    <div class="logo">
+      <img src="assets/img/logo.svg" alt="My logo" class="logo-img" (click)="homepage()">
+    </div>
+
+    <figure>
+      <input type="search" [(ngModel)]="searchText" placeholder="Що треба зробити?">
+      <input type="submit" value="Знайти фахівця" (click)="onSearch()">
+    </figure>
+
+    <button *ngIf="!authenticated" (click)="login()" mat-button class="bt_login">
+      <a>
+        <img src="../../../assets/img/user.svg" alt="">
+        Увійти
+      </a>
+    </button>
+    <span *ngIf="authenticated" style="margin-right: 1%">{{displayName}}</span>
+    <button *ngIf="authenticated" (click)="logout()" mat-button class="bt_login">
+      <a>
+        <img *ngIf="avatarUrl" src="{{avatarUrl}}" alt="">
+        Вийти
+      </a>
+    </button>
+
+    <button *ngIf="authenticated" mat-button class="bt_specialist" (click)="userpage()">Сторінка користувача</button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,35 @@
+.container {
+
+}
+
+/*mat-divider {*/
+/*  margin: 4% 0 4% 0;*/
+/*}*/
+/*.comment-order {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 16px;*/
+/*}*/
+
+/*.text-order-less {*/
+/*  flex: 0 0 auto;*/
+/*  width: 40%;*/
+/*}*/
+
+/*.text-order-more {*/
+/*  width: 40%;*/
+/*}*/
+
+/*.place-order {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 16px;*/
+/*}*/
+
+/*.city-select {*/
+/*  width: 40%;*/
+/*}*/
+
+/*.destination-select {*/
+/*  width: 40%;*/
+/*}*/
