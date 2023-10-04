@@ -1,0 +1,9 @@
+﻿version: '3.9'
+
+services:
+  busybee_web:
+    image: loldc1/busybee.web
+    container_name: busybee.web
+    restart: always
+    ports:
+      - "127.0.0.1:8000:80"
