@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "STARTING DEPLOYMENT THE PROJECT"
+IMAGE_NAME=$(cat docker-compose.yml | grep image: | awk '{print $2}' | tr -d '\r')
+CONTAINER_NAME=$(cat docker-compose.yml | grep container_name | awk '{print $2}' | tr -d '\r')
+
+echo "Removing old images..."
+docker stop $CONTAINER_NAME
+docker rm $CONTAINER_NAME
+docker rmi $IMAGE_NAME
+echo "Done!"
+
+echo "Docker-compose up..."
+docker-compose up -d
+echo "Done!"
+
+echo "PROJECT HAS BEEN DEPLOYED"
